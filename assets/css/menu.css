@@ -321,6 +321,7 @@ header.navigation .nav-list li.logo img{
 }
 section.welcome{
 	background-image: url("../../images/header.jpg");
+
 	background-size:100% 100%;
 	/*padding-bottom: 2em;*/
 	height: 650px;
@@ -360,8 +361,10 @@ section.welcome .welcome-items{
 section.welcome .headline{
 	color: white;
 	text-align: center;
-   	background-color: black;
-    font-size: 500%;
+  background-color: black;
+  font-size: 500%;
+  position: relative;
+  left: -2000px;
 }
 section.welcome .book-button{
 	display: flex;
@@ -415,10 +418,12 @@ article.intro-with-image{
 	background-image: url("../../images/small1.jpg");
 	color: white;
 	text-shadow: 1px 1px black;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  left: -2000px;
 }
 
 div.parallax-intro{
@@ -430,6 +435,7 @@ section.menu{
 	padding: 10%;
 	color: white;
 	background-color: rgb(68, 51, 51);
+	
 }
 section.menu .overview{
 	vertical-align: top;
@@ -463,51 +469,68 @@ section.menu .overview .overview-list a{
     justify-content: center;
 
 }
+/*
 section.menu .overview .overview-list a:hover{
 	background-color: green;
 }
 section.menu .overview .overview-list a:active{
 	background-color: red;
 }
-section.menu .imageview {
-	
-}
+*/
 
 section.menu .imageview .view-content{
+	height: 200px;
+	border: 1px solid white;
+	border-radius: 5px;
+	margin: 5%;
+}
 
-}
-section.menu .imageview .view-content figure{
-	display: block;
-    -webkit-margin-before: 0em;
-    -webkit-margin-after: 0em;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
-}
 section.menu .imageview .view-content img{
 	border: 1px solid white;
     border-radius: 5px;
+   
+}
+section.menu .imageview .view-content .tag:hover{
+	
+	padding-top: 30%;
+	height: 100%;
+	top:0px;
+	text-align: center;
+	background: linear-gradient(to bottom, rgba(255,100,100,1),rgba(0,0,0,0));
+	
+	border-top: 10px solid rgba(255,100,100,1);
+
+	
 }
 section.menu .imageview .view-content .tag{
 	opacity: 0.5;
-	background-color: black;
-	width: 90%;
+	background: black;
+	width: 100%;
 	text-align: left;
+  padding-left: 5%;
+	padding-top: 2%;
+	padding-bottom: 2%;
+	height: 20%;
+	transition: padding-top .5s, height .5s,top .5s,background .5s,padding-left .5s;
+	transition-timing-function: ease-out;
 	position: relative;
-	top: -75px;
-	padding-bottom: 15px;
-	display: flex;
-	justify-content: center;
-
-
-
+	top: 140px;
 }
 section.menu .imageview .view-content .tag a{
 	text-decoration: none;
 	color: white;
-	text-align: center;
 	font-size: 115%;
 	text-decoration: none;
-	border-bottom: 1px dashed #999
+	transition:  top 1s;
+	transition-timing-function: ease-in;
+	position:relative;
+	bottom: 2px;
+	text-align: center;
+	
+}
+
+section.menu .imageview .view-content .tag a:hover{
+	
 }
 
 /*meida query stuff*/
@@ -539,13 +562,19 @@ section.menu .imageview .view-content .tag a{
 		float:none;
     	width: 100%;
 	}
+	section.menu .imageview .view-content{
+		width: 60%;
+		margin-left: 20%;
+		margin-right: 15%;
+    background-repeat: no-repeat;
+    background-size: cover;
+	}
 	.view-content img{
 		margin-left: 15%;
 		width: 70%;
 	}
 	section.menu .imageview .view-content .tag{
-		width: 70%;
-		margin-left: 15%;
+		
 	}
 	section.menu .overview .overview-list{
 		margin-bottom: 20px;
@@ -557,6 +586,37 @@ section.menu .imageview .view-content .tag a{
 		font-size: 90%;
 	}
 }
+
+.card.special{
+	 transform-style: preserve-3d;
+	 transition: transform 1s ease-out;
+	 width: 100%;
+  	height: 100%;
+}
+.card{
+	 transform-style: preserve-3d;
+	 transition: transform 1s ease-out;
+	 width: 40%;
+	 height: 100%;
+}
+.face {
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.face.back {
+  display: block;
+  transform: rotateY(180deg);
+   display: none;
+}
+.tag:hover .card{
+	transform: rotateY(360deg);
+	width: 100%;
+}
+.tag:hover .back{
+	display: none;
+}
+
 
 /* Clearfix tech to contain floats */
 /*
@@ -688,31 +748,32 @@ contains float elements
 	background-repeat: no-repeat;
 	/*background-position: center center;*/
 }
-.modal#bruschettetomato figure {
+section > .modal:nth-child(1) figure {
 	/*outline: 1px solid black;*/
-	background-image: url("../../images/pic01.jpg");
+	background-image: url("../../images/appetizer-0.jpg");
 }
-.modal#rolls figure {
+section > .modal:nth-child(2) figure {
 	/*outline: 1px solid black;*/
-	background-image: url("../../images/pic02.jpg");
+	background-image: url("../../images/appetizer-1.jpg");
 }
-.modal#eggplants figure {
+section > .modal:nth-child(3) figure {
 	/*outline: 1px solid black;*/
-	background-image: url("../../images/pic03.jpg");
+	background-image: url("../../images/appetizer-2.jpg");
 }
-.modal#bruschette figure {
+section > .modal:nth-child(4) figure {
 	/*outline: 1px solid black;*/
-	background-image: url("../../images/pic04.jpg");
+	background-image: url("../../images/appetizer-3.jpg");
 }
-.modal#meatballs figure {
+section > .modal:nth-child(5) figure {
 	/*outline: 1px solid black;*/
-	background-image: url("../../images/pic05.jpg");
+	background-image: url("../../images/appetizer-4.jpg");
 }
-.modal#beans figure {
+section > .modal:nth-child(6) figure {
 	/*outline: 1px solid black;*/
-	background-image: url("../../images/pic06.jpg");
+	background-image: url("../../images/appetizer-5.jpg");
 }
 /*********************/
+
 
 /* Events */
 section.event {
@@ -760,7 +821,9 @@ div.container.upcoming-events {
 }
 
 div.container.past-events {
-	width: 80%;
+	 width: 80%;
+   position: relative;
+   left: -2000px;
 }
 
 div.container > h3 {
@@ -1102,6 +1165,8 @@ section.time-contact{
 	background-color: #f0f0f0;
 	margin-top: 0px;
 	padding-top: 0px;
+  position: relative;
+  left: -2000px;
 	/*outline: 1px solid black;*/
 }
 section.time-contact b{
