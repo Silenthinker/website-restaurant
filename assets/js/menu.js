@@ -19,9 +19,9 @@ $(document).ready(function(){
 	var menuTypes = ['appetizer', 'pasta', 'meat', 'dessert'];
     var menuNames = [
     ['Bruschette with Tomatoes', 'Green Rolls', 'Eggplants', 'Bruschette', 'Meatballs', 'Spicy Beans'],
-    ['Carls Pasta', 'Italian Pasta', 'Semolina Pasta', 'Pasta con Broccoli', 'Crawfish Pasta', 'Taco Pasta'],
-    ['Duck Confit', 'Baked Fish', 'Steak', 'Crawfish', 'Veggie Beef', 'Chicken'],
-    ['Tiramisu', 'Cheesecake', 'Cannoli', 'Ice Cream', 'Mille-feuille', 'Mafia'],
+    ['Home-made Carls Pasta', 'Italian Pasta', 'Semo Pasta', 'Veggie Pasta', 'Craw Pasta', 'Taco Pasta'],
+    ['Special Duck Confit', 'Baked Fish', 'Swiss Steak', 'Crawfish', 'Veggie Beef', 'Asian Chicken'],
+    ['Recommended Tiramisu', 'Cheesecake', 'Fired Cannoli', 'Ice Cream', 'Mille-feuille', 'Sweet Mafia'],
     ];
 	$(window).scroll(function(){
 		// dynamic menu highlight
@@ -45,18 +45,7 @@ $(document).ready(function(){
 		    $('section > .modal:nth-child(' + j + ') h2').text(menuNames[idx-1][i]);
 	    }
 	});
-	// disable scrolling in case of popup
-	var scrollElem = ((navigator.userAgent.toLowerCase().indexOf('webkit') != -1) ? 'body' : 'html');
-	var scrollTop;
-	$('.front > a').click(function () {
-		scrollTop = $(scrollElem).scrollTop();
-		$('body').css({'position': 'fixed'}).css({top: -1*scrollTop});
-	});
-	$('.popup .closebtn').click(function () {
-		$('body').css({'position': 'static'});
-		$(window).scrollTop(scrollTop);
-	});
-
+	
 	// highlight menu when hover
 	function changeImgText(idx) {
 		for (var k = 0; k < 6; k++) {
@@ -98,4 +87,24 @@ $(document).ready(function(){
 			}
 		}
 	)
+	// disable scrolling in case of popup
+	
+	var scrollElem = ((navigator.userAgent.toLowerCase().indexOf('webkit') != -1) ? 'body' : 'html');
+	var scrollTop;
+	/*
+	$('.front > a').click(function () {
+		scrollTop = $(scrollElem).scrollTop();
+		$('body').css({'position': 'fixed'}).css({top: -1*scrollTop});
+	});
+	*/
+	// make div.view-content clickable
+	$('div.view-content').on('click', function() {
+		scrollTop = $(scrollElem).scrollTop();
+		$('body').css({'position': 'fixed'}).css({top: -1*scrollTop});
+		window.location = $(this).find(".front > a").attr("href"); 
+	});
+	$('.popup .closebtn').click(function () {
+		$('body').css({'position': 'static'});
+		$(window).scrollTop(scrollTop);
+	});
 });

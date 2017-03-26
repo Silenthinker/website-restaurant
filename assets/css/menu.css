@@ -477,7 +477,6 @@ section.menu .overview .overview-list a:active{
 	background-color: red;
 }
 */
-
 section.menu .imageview .view-content{
 	height: 200px;
 	border: 1px solid white;
@@ -586,17 +585,19 @@ section.menu .imageview .view-content .tag a:hover{
 		font-size: 90%;
 	}
 }
-
+div.view-content:hover{
+    cursor: pointer;
+  }
 .card.special{
 	 transform-style: preserve-3d;
 	 transition: transform 1s ease-out;
-	 width: 100%;
+	 width: 90%;
   	height: 100%;
 }
 .card{
 	 transform-style: preserve-3d;
 	 transition: transform 1s ease-out;
-	 width: 40%;
+	 width: 45%;
 	 height: 100%;
 }
 .face {
@@ -867,6 +868,16 @@ div.past-events .flex-item {
 	div.past-events .flex-item {
 		width: 50%;
 	}
+  .card.special{
+   
+   width: 70%;
+    
+}
+.card{
+  
+   width: 30%;
+  
+}
 }
 @media screen and (max-width: 479px) {
 	div.past-events .flex-item {
